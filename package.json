@@ -8,11 +8,17 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "jest test.js"
+    "test": "jest test.js",
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "concurrently": "^4.1.0",
     "ejs": "^2.5.6",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "npx": "^10.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
