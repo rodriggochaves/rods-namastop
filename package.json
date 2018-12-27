@@ -8,16 +8,20 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "jest test.js",
+    "test": "jest ./src",
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "concurrently": "^4.1.0",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
+    "fs": "0.0.1-security",
+    "nock": "^10.0.5",
+    "node-cron": "^2.0.3",
     "npx": "^10.2.0"
   },
   "devDependencies": {
