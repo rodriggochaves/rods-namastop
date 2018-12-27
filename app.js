@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/hello', (req, res) => {
