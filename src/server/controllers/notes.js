@@ -1,14 +1,12 @@
-const axios = require('axios');
-const token = process.env.SLACK_OAUTH_TOKEN
+const Slack = require('../../libs/slack')
 const Note = require('../models/schema')
 
 const createNote = (request, response) => {
   const username = request.body.user_name
   const userId = request.body.user_id
   const text = request.body.text
-  const url = `https://slack.com/api/users.profile.get?token=${token}&user=${userId}`
-  const image = axios.get(url).then((response) => {
-    const data = response.data
+  
+  const image = Slack.getUser(userId).then((data) => {
     const userAvatar = data.profile.image_72
     const note = new Note({ username, userId, text, userAvatar })
 

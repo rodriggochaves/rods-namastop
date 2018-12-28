@@ -1,16 +1,10 @@
+const Slack = require('./slack');
 const axios = require('axios');
 
 const remindAllUsers = async () => {
-  const response = await getAllUser()
+  const response = await Slack.getAllUser()
   const channelsId = response.members.map(user => user.id)
   sendReminders(channelsId)
-}
-
-const getAllUser = async () => {
-  const token = process.env.SLACK_BOT_TOKEN
-  const url = `https://slack.com/api/users.list?token=${token}`
-
-  return axios.get(url).then(response => response.data)
 }
 
 const sendReminders = async (usersList) => {
@@ -33,5 +27,4 @@ const sendReminders = async (usersList) => {
 module.exports = {
   remindAllUsers: remindAllUsers,
   sendReminders: sendReminders,
-  getAllUser: getAllUser
 }
