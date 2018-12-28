@@ -56,7 +56,10 @@ class App extends Component {
             return (
               <div key={note._id} className="comment">
                 <div className="avatar">
-                  <img src={note.userAvatar || "https://semantic-ui.com/images/avatar/small/elliot.jpg"}/>
+                  <img 
+                    src={note.userAvatar || "https://semantic-ui.com/images/avatar/small/elliot.jpg"}
+                    alt="user image"  
+                  />
                 </div>
                 <div className="content">
                   <span onClick={() => this.filterByUser(note.userId) } className="author">
@@ -70,7 +73,10 @@ class App extends Component {
                     {note.text}
                   </div>
                   <div className="target">
-                    <img src={note.targetAvatar || "https://semantic-ui.com/images/avatar/small/elliot.jpg"} />
+                    <img 
+                      src={note.targetAvatar || "https://semantic-ui.com/images/avatar/small/elliot.jpg"} 
+                      alt="target image"
+                    />
                   </div>
                 </div>
               </div>
