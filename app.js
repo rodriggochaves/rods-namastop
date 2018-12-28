@@ -9,10 +9,6 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
-})
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
