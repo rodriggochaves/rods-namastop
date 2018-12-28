@@ -11,6 +11,10 @@ h1 {
   font-size: 20px
 }
 
+.author {
+  cursor: pointer;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
