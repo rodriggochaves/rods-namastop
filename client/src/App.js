@@ -23,11 +23,6 @@ class App extends Component {
     return body
   }
 
-  handleSubmit = async e => {
-    e.preventDefault();
-    
-  }
-
   render() {
     return (
       <div className="App">
