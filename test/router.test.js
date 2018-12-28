@@ -27,6 +27,17 @@ describe('routes', () => {
   it('POST /notes responds with http 200', async () => {
     Nock("https://slack.com/api")
       .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
+      .get("/users.list?token=123")
+      .reply(200, {
+        members: [
+          { name: 'rodrigochaves', userId: '123' },
+          { name: 'kilmer', userId: '124' },
+          { name: 'luiz', userId: '126' },
+        ]
+      })
+
+    Nock("https://slack.com/api")
+      .defaultReplyHeaders({ 'access-control-allow-origin': '*' })
       .get("/users.profile.get?token=321&user=U48H4EH19")
       .reply(200, {
         profile: {
