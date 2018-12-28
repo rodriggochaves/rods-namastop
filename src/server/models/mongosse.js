@@ -7,6 +7,8 @@ const config = () => {
 
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
+
+  return db;
 }
 
 module.exports = { config }
