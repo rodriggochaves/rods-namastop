@@ -38,14 +38,14 @@ describe('request to API', () => {
     })
   })
 
-  it('renders 3 notes', async () => {
+  it('renders 3 notes', async() => {
     const wrapper = await shallow(<App />);
     await wrapper.instance().callApi()
     expect(wrapper.find('.comment').length).toEqual(3)
   })
 
   it('renders to an user if clicked', async() => {
-    const wrapper = await shallow(<App />);
+    const wrapper = await shallow(<App />)
     await wrapper.instance().callApi()
     wrapper.find('.author').at(0).simulate('click')
     wrapper.update()
