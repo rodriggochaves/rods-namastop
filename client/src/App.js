@@ -27,13 +27,20 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Namastop</h1>
-        {this.state.notes.map((note) => {
-          return (
-            <div key={note._id}>
-              <p>{note.username}</p>
-            </div>
-          )
-        })}
+        <div className="ui container">
+          <div className="ui feed">
+          {this.state.notes.map((note) => {
+            return (
+              <div key={note._id} className="event">
+                <a className="user">{note.username}</a>&nbsp;said&nbsp;
+                <div className="extra text">
+                  {note.text}
+                </div>
+              </div>
+            )
+          })}
+          </div>
+        </div>
       </div>
     );
   }
