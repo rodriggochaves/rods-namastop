@@ -3,7 +3,7 @@ const db = require('../src/server/models/mongosse').config()
 
 const request = require('supertest')
 const router = require('../src/router')
-const assert = require('assert');
+const assert = require('assert')
 const Note = require('../src/server/models/schema')
 const Nock = require('nock')
 
