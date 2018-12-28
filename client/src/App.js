@@ -32,6 +32,9 @@ class App extends Component {
           {this.state.notes.map((note) => {
             return (
               <div key={note._id} className="comment">
+                <div className="avatar">
+                  <img src={note.userAvatar}/>
+                </div>
                 <div className="content">
                   <span className="author">{note.username}</span>&nbsp;said&nbsp;
                   <div className="text">
