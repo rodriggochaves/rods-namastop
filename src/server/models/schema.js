@@ -5,7 +5,8 @@ const Note = mongoose.model('notes', {
   userId: String,
   text: String,
   userAvatar: String,
-  target: String
+  target: String,
+  targetAvatar: String
 });
 
 module.exports = Note

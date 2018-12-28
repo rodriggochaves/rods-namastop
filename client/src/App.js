@@ -69,6 +69,9 @@ class App extends Component {
                   <div className="text">
                     {note.text}
                   </div>
+                  <div className="target">
+                    <img src={note.targetAvatar || "https://semantic-ui.com/images/avatar/small/elliot.jpg"} />
+                  </div>
                 </div>
               </div>
             )

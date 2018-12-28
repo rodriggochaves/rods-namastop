@@ -6,12 +6,22 @@ const createNote = (request, response) => {
   const username = request.body.user_name
   const userId = request.body.user_id
   const text = request.body.text
-  const target = extractMention(text)
+  const target = extractMention(text)[0]
+  const note = new Note({ username, userId, text, target })
   
-  const image = Slack.getUser(userId).then((data) => {
+  Slack.getUser(userId).then((data) => {
     const userAvatar = data.profile.image_72
-    const note = new Note({ username, userId, text, userAvatar, target })
+    note.userAvatar = userAvatar
 
+    return Slack.getAllUsers()
+
+  }).then((users) => {
+    users.members.find((user) => {
+      if (user.name == target.substring(1, target.length)) {
+        note.targetAvatar = user.profile.image_72
+      }
+    })
+    
     note.save()
 
     response.json({ text: "Your gratitude was sent. :blue_heart:" })
