@@ -25,5 +25,10 @@ app.post('/notes', (req, res) => {
   res.json({ text: "Your gratitude was sent. :blue_heart:" })
 });
 
+app.get('/notes', async (req, res) => {
+  await Note.find({}).exec().then(notes => {
+    res.json(notes)
+  })
+});
 
 module.exports = app
