@@ -10,7 +10,7 @@ router.use(bodyParser.urlencoded({
   extended: true
 }));
 
-router.use(express.static(path.join(__dirname, 'client/build')));
+router.use(express.static(path.join(__dirname, '../client/build')));
 
 router.get('/', indexController.client);
 router.post('/notes', notesController.createNote);
