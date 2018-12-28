@@ -62,7 +62,10 @@ class App extends Component {
                   <span onClick={() => this.filterByUser(note.userId) } className="author">
                     {note.username}
                   </span>
-                  <span>&nbsp;said&nbsp;</span>
+                  <span>&nbsp;said to&nbsp;</span>
+                  <span className="author">
+                    {note.target}
+                  </span>
                   <div className="text">
                     {note.text}
                   </div>
