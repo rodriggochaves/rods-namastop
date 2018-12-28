@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const Note = require('./src/server/models/schema')
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -13,12 +14,16 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
-// app.post('/note', (req, res) => {
-//   const username = req.body.user_name
-//   const userId = req.body.user_id
-//   const text = req.body.text
+app.post('/notes', (req, res) => {
+  const username = req.body.user_name
+  const userId = req.body.user_id
+  const text = req.body.text
 
-//   createNote(username, userId,)
-// });
+  const note = new Note({ username, userId, text })
+  note.save()
+  
+  res.json({ text: "Your gratitude was sent. :blue_heart:" })
+});
+
 
 module.exports = app
