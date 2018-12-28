@@ -26,15 +26,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Namastop</h1>
         <div className="ui container">
-          <div className="ui feed">
+        <h1>Namastop</h1>
+          <div className="ui comments">
           {this.state.notes.map((note) => {
             return (
-              <div key={note._id} className="event">
-                <a className="user">{note.username}</a>&nbsp;said&nbsp;
-                <div className="extra text">
-                  {note.text}
+              <div key={note._id} className="comment">
+                <div className="content">
+                  <span className="author">{note.username}</span>&nbsp;said&nbsp;
+                  <div className="text">
+                    {note.text}
+                  </div>
                 </div>
               </div>
             )
